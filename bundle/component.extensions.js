@@ -15153,7 +15153,9 @@ var MutationSummary = (function () {
                 if(this._store){
                     this._store[prop]=val;
                 }
-            }
+            },
+            click:'touchclick',
+            hover:'touchhover'
         }
     };
 }));

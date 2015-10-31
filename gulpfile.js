@@ -1,4 +1,3 @@
-
 var gulp=require('gulp'),
     fs = require('fs-extra'),
     concat=require('gulp-concat'),
@@ -14,37 +13,44 @@ var gulp=require('gulp'),
     MS='./node_modules/jquery-extensions/dist/mutation-summary.js',
     UTILS='./node_modules/elliptical-utils/dist/elliptical.utils.js',
     MOMENT='./node_modules/moment/moment.js',
-    CSS='./css/styles.css';
+    CSS='./css/styles.css',
+    BUNDLE_JSON=require('./bundle.json'),
+    BUNDLE='./bundle';
+
 
 
 
 
 gulp.task('default',function(){
-    console.log(REPO_NAME + ' ..."tasks: gulp build|gulp minify"');
+    console.log(REPO_NAME + ' ..."tasks: gulp build|gulp minify|gulp bundle"');
 });
 
 gulp.task('build',function(){
-    concatFileStream(DUST,'dust.js');
-    fileStream(MS);
-    fileStream(JQ);
-    fileStream(JQEXT);
-    fileStream(UTILS);
-    fileStream(MOMENT);
-    fileStream(CSS);
+    concatFileStream(DUST,DIST,'dust.js');
+    fileStream(MS,DIST);
+    fileStream(JQ,DIST);
+    fileStream(UTILS,DIST);
+    fileStream(MOMENT,DIST);
+    fileStream(CSS,DIST);
     concatStream(BUILD_NAME)
         .pipe(gulp.dest(DIST));
 });
 
 gulp.task('minify',function(){
-    minFileStream(DUST,'dust.min.js');
-    minFileStream(MS,'mutation-summary.min.js');
-    minFileStream(JQ,'jquery.min.js');
-    minFileStream(JQEXT,'jquery.extensions.min.js');
-    minFileStream(UTILS,'elliptical.utils.min.js');
-    minFileStream(MOMENT,'moment.min.js');
+    minFileStream(DUST,DIST,'dust.min.js');
+    minFileStream(MS,DIST,'mutation-summary.min.js');
+    minFileStream(JQ,DIST,'jquery.min.js');
+    minFileStream(UTILS,DIST,'elliptical.utils.min.js');
+    minFileStream(MOMENT,DIST,'moment.min.js');
     concatStream(MIN_NAME)
         .pipe(uglify())
         .pipe(gulp.dest(DIST));
+});
+
+gulp.task('bundle',function(){
+    fileStream(JQ,'./bundle');
+    fileStream(CSS,'./bundle');
+    concatFileStream(BUNDLE_JSON,BUNDLE,BUILD_NAME);
 });
 
 
@@ -57,20 +63,20 @@ function concatStream(name){
         .pipe(concat(name))
 }
 
-function fileStream(src){
+function fileStream(src,dest){
     gulp.src(src)
-        .pipe(gulp.dest(DIST));
+        .pipe(gulp.dest(dest));
 }
 
-function concatFileStream(src,name){
+function concatFileStream(src,dest,name){
     gulp.src(src)
         .pipe(concat(name))
-        .pipe(gulp.dest(DIST));
+        .pipe(gulp.dest(dest));
 }
 
-function minFileStream(src,name){
+function minFileStream(src,dest,name){
     gulp.src(src)
         .pipe(concat(name))
         .pipe(uglify())
-        .pipe(gulp.dest(DIST));
+        .pipe(gulp.dest(dest));
 }

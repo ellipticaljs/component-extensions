@@ -1,12 +1,12 @@
 
 
 
-module.exports=require('jquery-extensions');
-module.exports.dust=require('./dist/dust');
-module.exports.utils=require('./dist/elliptical.utils');
-module.exports.moment=require('moment');
-module.exports.mutationSummary=require('./dist/mutation-summary');
-module.exports.extensions={
+require('jquery-extensions');
+require('./dist/dust');
+require('./dist/elliptical.utils');
+require('moment');
+require('./dist/mutation-summary');
+module.exports={
     element:require('./lib/prototype.element'),
     dataStore:require('./lib/prototype.dataStore'),
     device:require('./lib/prototype.device'),

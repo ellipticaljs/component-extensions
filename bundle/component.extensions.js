@@ -16812,7 +16812,7 @@ var MutationSummary = (function () {
                     node.innerHTML=out;
                 }
                 if (callback) {
-                    callback(err, html);
+                    callback(err, out);
                 }
             });
         },

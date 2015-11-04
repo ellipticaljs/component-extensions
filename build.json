@@ -5,10 +5,10 @@
   "./lib/prototype.dataStore.js",
   "./lib/prototype.device.js",
   "./lib/prototype.drawer.js",
-  "./lib/prototype.navigation",
+  "./lib/prototype.navigation.js",
   "./lib/prototype.transition.js",
   "./lib/prototype.transform.js",
   "./lib/prototype.template.js",
   "./lib/prototype.event.js",
-  "./lib/prototype.mixin.js"
+  "./lib/prototype.base.js"
 ]

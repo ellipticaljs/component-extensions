@@ -16322,7 +16322,7 @@ var MutationSummary = (function () {
     } else {
         // Browser globals (root is window)
         root.elliptical = root.elliptical || {};
-        root.elliptical.extensions = root.elliptical.extensions | {};
+        root.elliptical.extensions = root.elliptical.extensions || {};
         root.elliptical.extensions.device = factory();
         root.returnExports = elliptical.extensions.device;
     }
@@ -16357,7 +16357,7 @@ var MutationSummary = (function () {
     } else {
         // Browser globals (root is window)
         root.elliptical=root.elliptical || {};
-        root.elliptical.extensions=root.elliptical.extensions | {};
+        root.elliptical.extensions=root.elliptical.extensions || {};
         root.elliptical.extensions.drawer = factory();
         root.returnExports=elliptical.extensions.drawer;
     }

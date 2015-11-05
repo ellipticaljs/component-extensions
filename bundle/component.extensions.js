@@ -16806,7 +16806,14 @@ var MutationSummary = (function () {
             this.__precompile(html,templateId);
         },
 
+        _verifyTemplateExists:function(templateId){
+            if(dust.cache[templateId]===undefined){
+                console.log('warning: template ' + templateId + ' does not exist');
+            }
+        },
+
         _render:function(node,templateId,context,callback){
+            this._verifyTemplateExists(templateId);
             dust.render(templateId, context, function (err, out) {
                 if(out){
                     node.innerHTML=out;
@@ -16818,6 +16825,7 @@ var MutationSummary = (function () {
         },
 
         _renderTemplate:function(templateId,context,callback){
+            this._verifyTemplateExists(templateId);
             dust.render(templateId, context, callback);
         },
 

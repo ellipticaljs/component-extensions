@@ -16,5 +16,6 @@
   "./lib/prototype.transform.js",
   "./lib/prototype.template.js",
   "./lib/prototype.event.js",
+  "./lib/prototype.options.js",
   "./lib/prototype.mixin.js"
 ]

@@ -1,2 +1,2 @@
-JS Template
+Prototype extensions/behaviors for web components
 ===========================

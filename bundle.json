@@ -3,7 +3,7 @@
   "./node_modules/dustjs/dist/dust.js",
   "./node_modules/dustjs-helpers/dist/dust-helpers.js",
   "./lib/dust-helpers.js",
-  "./node_modules/jquery-extensions/dist/mutation-summary.js",
+  "./node_modules/jquery-mutation-summary/dist/mutation.summary.js",
   "./node_modules/moment/moment.js",
   "./node_modules/jquery-extensions/dist/jquery.extensions.js",
   "./lib/prototype.element.js",

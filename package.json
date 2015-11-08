@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "jquery-extensions": "git+https://github.com/tachyon1337/jquery-extensions.git",
+    "jquery-mutation-summary": "git+https://github.com/tachyon1337/jquery-mutation-summary.git",
     "dustjs": "git+https://github.com/tachyon1337/dustjs.git",
+    "dustjs-helpers": "^1.7.3",
     "elliptical-utils": "git+https://github.com/tachyon1337/elliptical-utils.git",
-    "moment": "^2.10.6",
-    "dustjs-linkedin": "^2.7.2",
-    "dustjs-helpers": "^1.7.3"
+    "moment": "^2.10.6"
   },
   "devDependencies": {
     "gulp": "^3.8.7",

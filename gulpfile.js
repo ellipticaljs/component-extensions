@@ -8,9 +8,8 @@ var gulp=require('gulp'),
     REPO_NAME='component extensions',
     DIST='./dist',
     DUST=['./node_modules/dustjs/dist/dust.js','./node_modules/dustjs-helpers/dist/dust-helpers.js','./lib/dust-helpers.js'],
-    JQEXT='./node_modules/jquery-extensions/dist/jquery.extensions.js',
     JQ='./node_modules/jquery-extensions/dist/jquery.js',
-    MS='./node_modules/jquery-extensions/dist/mutation-summary.js',
+    MS='./node_modules/jquery-mutation-summary/dist/mutation.summary.js',
     UTILS='./node_modules/elliptical-utils/dist/elliptical.utils.js',
     MOMENT='./node_modules/moment/moment.js',
     CSS='./css/styles.css',
@@ -19,18 +18,16 @@ var gulp=require('gulp'),
 
 
 
-
-
 gulp.task('default',function(){
-    console.log(REPO_NAME + ' ..."tasks: gulp build|gulp minify|gulp bundle"');
+    console.log(REPO_NAME + ' ..."tasks: gulp build|minify|bundle"');
 });
 
 gulp.task('build',function(){
     concatFileStream(DUST,DIST,'dust.js');
-    fileStream(MS,DIST);
-    fileStream(JQ,DIST);
     fileStream(UTILS,DIST);
     fileStream(MOMENT,DIST);
+    fileStream(JQ,DIST);
+    fileStream(MS,DIST);
     fileStream(CSS,DIST);
     concatStream(BUILD_NAME)
         .pipe(gulp.dest(DIST));
@@ -38,8 +35,8 @@ gulp.task('build',function(){
 
 gulp.task('minify',function(){
     minFileStream(DUST,DIST,'dust.min.js');
-    minFileStream(MS,DIST,'mutation-summary.min.js');
     minFileStream(JQ,DIST,'jquery.min.js');
+    minFileStream(MS,DIST,'mutation.summary.min.js');
     minFileStream(UTILS,DIST,'elliptical.utils.min.js');
     minFileStream(MOMENT,DIST,'moment.min.js');
     concatStream(MIN_NAME)

@@ -5,7 +5,7 @@ require('jquery-extensions');
 require('./dist/dust');
 require('./dist/elliptical.utils');
 require('moment');
-require('./dist/mutation-summary');
+require('./dist/mutation.summary');
 module.exports={
     element:require('./lib/prototype.element'),
     dataStore:require('./lib/prototype.dataStore'),

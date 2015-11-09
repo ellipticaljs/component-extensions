@@ -1,5 +1,4 @@
 [
-  "./node_modules/jquery-extensions/dist/jquery.extensions.js",
   "./lib/prototype.element.js",
   "./lib/prototype.utils.js",
   "./lib/prototype.dataStore.js",

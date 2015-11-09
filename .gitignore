@@ -36,6 +36,7 @@ nbproject
 node_modules/
 bower_components/
 bundle/
+bundle.json
 
 #Visual Studio
 obj/

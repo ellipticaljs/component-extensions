@@ -1,7 +1,7 @@
 {
   "name": "component-extensions",
   "description": "prototype extensions/behaviors for web components",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "dist/component-extensions.js",
   "authors": [
     "S. Francis"

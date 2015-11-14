@@ -240,7 +240,7 @@
     return {
 
         _device: $.device,
-        _mq: $.mq,
+        _mq: $.device.mq,
 
         _press: function () {
             return ('ontouchend' in document) ? 'touchstart' : 'click';
@@ -1589,7 +1589,7 @@
     } else {
         // Browser globals (root is window)
         var e=root.elliptical.extensions;
-        root.elliptical.extensions.base = factory(root.elliptical.utils,e.device,
+        root.elliptical.extensions.base = factory(root.elliptical.utils,root,e.device,
             e.template,e.transition,e.transform,e.utils,e.event,e.options);
         root.returnExports = root.elliptical.extensions.base;
     }

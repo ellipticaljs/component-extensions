@@ -1,14 +1,8 @@
 
 
 
-require('jquery-extensions');
-require('./dist/dust');
-require('./dist/elliptical.utils');
-require('moment');
-require('./dist/mutation.summary');
 module.exports={
-    element:require('./lib/prototype.element'),
-    dataStore:require('./lib/prototype.dataStore'),
+    options:require('./lib/prototype.options'),
     device:require('./lib/prototype.device'),
     utils:require('./lib/prototype.utils'),
     drawer:require('./lib/prototype.drawer'),

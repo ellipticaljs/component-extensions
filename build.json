@@ -1,7 +1,6 @@
 [
-  "./lib/prototype.element.js",
+
   "./lib/prototype.utils.js",
-  "./lib/prototype.dataStore.js",
   "./lib/prototype.device.js",
   "./lib/prototype.drawer.js",
   "./lib/prototype.navigation.js",

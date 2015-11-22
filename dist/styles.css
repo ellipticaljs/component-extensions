@@ -17,8 +17,12 @@
     box-shadow: rgba(0, 0, 0, .2) -1px -2px 20px 1px;
 }
 
-ui-container,ui-drawer,touch-ui-drawer{
+ui-container{
     display:block;
+}
+
+ui-drawer,touch-ui-drawer{
+    display:none;
 }
 
 ui-overlay,.ui-overlay {

@@ -1,19 +1,19 @@
 {
   "name": "component-extensions",
   "description": "prototype extensions/behaviors for web components",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "author": "S. Francis",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tachyon1337/component-extensions.git"
+    "url": "https://github.com/ellipticaljs/component-extensions.git"
   },
   "dependencies": {
-    "jquery-extensions": "git+https://github.com/tachyon1337/jquery-extensions.git",
-    "jquery-mutation-summary": "git+https://github.com/tachyon1337/jquery-mutation-summary.git",
-    "dustjs": "git+https://github.com/tachyon1337/dustjs.git",
-    "elliptical-dust-helpers": "git+https://github.com/tachyon1337/elliptical-dust-helpers.git",
-    "elliptical-utils": "git+https://github.com/tachyon1337/elliptical-utils.git"
+    "jquery-extensions": "git+https://github.com/ellipticaljs/jquery-extensions.git",
+    "jquery-mutation-summary": "git+https://github.com/ellipticaljs/jquery-mutation-summary.git",
+    "dustjs": "git+https://github.com/ellipticaljs/dustjs.git",
+    "elliptical-dust-helpers": "git+https://github.com/ellipticaljs/dust-helpers.git",
+    "elliptical-utils": "git+https://github.com/ellipticaljs/utils.git"
   },
   "devDependencies": {
     "gulp": "^3.8.7",

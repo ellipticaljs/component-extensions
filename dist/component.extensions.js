@@ -334,10 +334,9 @@
          * @private
          */
         _openDrawer: function (callback, fnClose) {
-
+            var self = this;
             //show drawer
             this._showDrawer();
-
 
             //get viewport height
             var height = this._device.viewport.height;
@@ -346,11 +345,10 @@
                 this.height = height;
             }
 
-            var self = this;
-
             //get ref to containers
             var container = this._data.get('container');
             var transformContainer = this._data.get('transformContainer');
+
 
             //hardware accelerate the transition
             this._setHardwareAcceleration(transformContainer);
@@ -382,6 +380,7 @@
             var transformDelay=(this.options) ? this.options.transformDelay : this.transformDelay;
             var translateX=(this.options) ? this.options.translateX : this.translateX;
 
+            //transition overlay
             overlay.transition({
                 background: overlayBackground,
                 opacity: overlayOpacity,
@@ -556,6 +555,11 @@
 
         },
 
+        _onDestroy:function(){
+
+        },
+
+
 
         /*==========================================
          PUBLIC METHODS
@@ -620,7 +624,9 @@
         _removeTouchNavigation: function (element) {
             //unbind touch search
             var touchInput=this._data.get('touchInput');
-            if (touchInput) this._unbindSearch(touchInput);
+            if (touchInput) {
+                this._unbindSearch(touchInput);
+            }
             //remove drawer
             this._removeDrawer();
             //reset element
@@ -648,7 +654,9 @@
 
             //get the drawer
             var drawerSection = this._data.get('drawerSection');
-            if(!drawerSection)return;
+            if(!drawerSection){
+                return;
+            }
 
             //get the drawer header
             var drawerHeader = this._data.get('drawerHeader');
@@ -656,14 +664,15 @@
             //create the drawer menu element
             var drawerMenu = $('<touch-ui-menu></touch-ui-menu>');
 
+
             var includeHome=(this.options) ? this.options.includeHome : this.includeHome;
             var homeUrl=(this.options) ? this.options.homeUrl : this.homeUrl;
             var homeIcon=(this.options) ? this.options.homeIcon : this.homeIcon;
             var touchMenu=(this.options) ? this.options.touchMenu : this.touchMenu;
+            var model=(this.options) ? this.options.model : this.model;
 
             //add home menu item at the top
             if (includeHome) drawerMenu.append(this._methods.createHomeListItem(homeUrl, homeIcon));
-
             if(touchMenu !==undefined && touchMenu===false){
                 //append menu to drawer
                 drawerSection.append(drawerMenu);
@@ -701,17 +710,14 @@
             //add any linkable parent node to the child touch dropdown(it is then linkable within the child dropdown)
             drawerMenu = this._methods.addParentNodesToChildDropDowns(drawerMenu, 'ui-dropdown');
 
-
             /* ---attach search to drawerHeader----------------*/
             this._appendSearch(drawerMenu,drawerHeader);
 
             //add any menu items from plugin opts
-            var model=(this.options) ? this.options.model : this.model;
             var optsItems = this._methods.createMenuItemsFromArray(model);
             if (optsItems) {
                 drawerMenu.append(optsItems);
             }
-
 
             //prepend touch-section header, if any
             var touchSection=this.element.find('touch-section[header]');
@@ -719,7 +725,6 @@
                 var clone_=touchSection.clone();
                 drawerSection.append(clone_);
             }
-
 
             //append menu to drawer
             drawerSection.append(drawerMenu);
@@ -730,7 +735,6 @@
                 var cloneF=touchSectionF.clone();
                 drawerSection.append(cloneF);
             }
-
 
             //save ref to menu
             this._data.set('drawerMenu',drawerMenu);
@@ -778,7 +782,9 @@
                 var drawerMenu = this._data.get('drawerMenu');
                 //add menu items from plugin opts
                 var optsLi = this._methods.createMenuItemsFromArray(model);
-                if (optsLi) drawerMenu.append(optsLi);
+                if (optsLi) {
+                    drawerMenu.append(optsLi);
+                }
             }
         },
 
@@ -840,15 +846,19 @@
          */
         _onSearch: function (input,device) {
             if(device==='desktop'){
-                if(this._data.get('searchRegistered')) return false;
-                else{
+                if(this._data.get('searchRegistered')){
+                    return false;
+                } else{
                     this._data.set('searchRegistered',true);
                     this._onDesktopSearch(input)
                 }
 
             }else{
-                if(this._data.get('touchSearchRegistered')) return false;
-                else this._data.set('touchSearchRegistered',true);
+                if(this._data.get('touchSearchRegistered')){
+                    return false;
+                } else {
+                    this._data.set('touchSearchRegistered',true);
+                }
             }
         },
 
@@ -889,11 +899,13 @@
 
             input.on('focus', function () {
                 input.on('tap', function (event) {
-                    if ($(this).hasClass('focused')) handleEvent(input);
-                    else input.addClass('focused');
+                    if ($(this).hasClass('focused')) {
+                        handleEvent(input);
+                    } else {
+                        input.addClass('focused');
+                    }
                 });
             });
-
             input.on('blur', function () {
                 input.removeClass('focused');
                 input.off('tap');
@@ -960,15 +972,18 @@
             var href = a.attr('href');
             var action = a.attr('data-action');
             var route = a.attr('data-route');
-            if (route && route === 'false') handleTouchEvents = true;
+            if (route && route === 'false') {
+                handleTouchEvents = true;
+            }
             /* close the drawer */
             this._hide();
-            if (href !== undefined && href !== '#' && action === undefined && handleTouchEvents) {
+            if (typeof href != 'undefined' && href != '#' && (typeof action === 'undefined' && handleTouchEvents)) {
+                ///if handleTouchEvents, use the injected location provider to dispatch href
+
                 /* trigger location after the drawer has closed */
                 setTimeout(function(){
                     if(typeof href !=='undefined'){
-                        if(self._location) self._location(href);
-                        else location.href=href;
+                        self._location(href);
                     }
                 },duration);
             } else { //else, just fire an event
@@ -990,7 +1005,7 @@
          */
         _touchMenuLink:function(a,handleTouchEvents){
             var href= a.attr('href');
-            if(href===undefined || href==='#'){
+            if(typeof href==='undefined' || href==='#'){
                 var item= a.parent('menu-item-dropdown');
                 if(item[0]){
                     this._touchToggleDropdown(item);
@@ -1012,10 +1027,7 @@
 
 
         _methods: {
-            /**
-             *
-             * @returns {boolean}
-             */
+
 
             /**
              * returns menu item selector
@@ -1146,10 +1158,10 @@
                 var item;
                 var menuItem=this.listItem();
                 var home='home';
-                if (homeIcon === null) {
-                    item = $('<' + menuItem + ' ' + home + '><a href="' + homeUrl + '">Home</a></' + menuItem + '>');
+                if (!homeIcon) {
+                    item = $('<' + menuItem + ' ' + home + '><a href="' + homeUrl + '" data-route="false">Home</a></' + menuItem + '>');
                 } else {
-                    item = $('<' + menuItem + ' ' + home + '><span class="touch-icon ' + homeIcon + '"></span><a href="' + homeUrl + '">Home</a></' + menuItem + '>');
+                    item = $('<' + menuItem + ' ' + home + '><span class="touch-icon ' + homeIcon + '"></span><a href="' + homeUrl + '" data-route="false">Home</a></' + menuItem + '>');
                 }
 
                 return item;
@@ -1253,27 +1265,14 @@
          */
         _onDestroy:function(){
             this._unbindSearch();
-        },
+        }
 
 
         /*==========================================
          PUBLIC METHODS
          *===========================================*/
 
-        /**
-         *  @public
-         */
-        show: function () {
-            this._show();
-        },
 
-        /**
-         *
-         * @public
-         */
-        hide: function () {
-            this._hide();
-        }
 
     };
 }));

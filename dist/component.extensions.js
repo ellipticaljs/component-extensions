@@ -864,62 +864,55 @@
 
         _onDesktopSearch:function(input){
             var eventTrigger=this._onEventTrigger.bind(this);
-            input.on('focus', function () {
-                input.on('click', function (event) {
-                    if ($(this).hasClass('focused')) {
-                        handleEvent(input);
-                    } else {
-                        input.addClass('focused');
-                    }
-                });
-                input.keypress(function (event) {
-                    if (event.which === 13) {
-                        handleEvent(input);
-                        return true;
-                    }
-                });
+            input.on('click', function (event) {
+                if ($(this).hasClass('focused')) {
+                    handleEvent(input);
+                } else {
+                    input.addClass('focused');
+                }
+            });
+            input.keypress(function (event) {
+                if (event.which === 13) {
+                    handleEvent(input);
+                    return true;
+                }
             });
             input.on('blur', function () {
                 input.removeClass('focused');
-                input.off('click');
             });
-
 
             function handleEvent(input){
                 var val = input.val();
                 var eventData = {
                     value: val
                 };
-                eventTrigger('search', eventData);
+                if(val!=='') eventTrigger('search', eventData);
+                else input.removeClass('focused');
             }
         },
 
         _onTouchSearch:function(input){
             var eventTrigger=this._onEventTrigger.bind(this);
-
-            input.on('focus', function () {
-                input.on('tap', function (event) {
-                    if ($(this).hasClass('focused')) {
-                        handleEvent(input);
-                    } else {
-                        input.addClass('focused');
-                    }
-                });
+            input.on('tap', function (event) {
+                if ($(this).hasClass('focused')) {
+                    handleEvent(input);
+                } else {
+                    input.addClass('focused');
+                }
             });
             input.on('blur', function () {
                 input.removeClass('focused');
                 input.off('tap');
             });
 
-
             function handleEvent(input){
                 var val = input.val();
                 var eventData = {
                     value: val
                 };
-                eventTrigger('search', eventData);
+                if(val!=='') eventTrigger('search', eventData);
+                else input.removeClass('focused');
             }
-
         },
 
 

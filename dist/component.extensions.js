@@ -1478,6 +1478,7 @@
         },
 
         __triggerEvent:function(evt,data){
+            var tagName=this.tagName.toLowerCase();
             var nameSpacedTagName = this._utils.string.tagNameToNamespace(tagName);
             evt=nameSpacedTagName + '.' + evt;
             this.element.trigger(evt,data);

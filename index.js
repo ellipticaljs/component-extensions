@@ -9,7 +9,6 @@ module.exports={
     navigation:require('./lib/prototype.navigation'),
     transition:require('./lib/prototype.transition'),
     transform:require('./lib/prototype.transform'),
-    template:require('./lib/prototype.template'),
     event:require('./lib/prototype.event'),
     base:require('./lib/prototype.base')
 };

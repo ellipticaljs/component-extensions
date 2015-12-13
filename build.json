@@ -6,7 +6,6 @@
   "./lib/prototype.navigation.js",
   "./lib/prototype.transition.js",
   "./lib/prototype.transform.js",
-  "./lib/prototype.template.js",
   "./lib/prototype.event.js",
   "./lib/prototype.options.js",
   "./lib/prototype.base.js"

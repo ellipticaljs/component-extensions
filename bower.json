@@ -1,7 +1,7 @@
 {
   "name": "component-extensions",
   "description": "prototype extensions/behaviors for web components",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "main": "dist/component-extensions.js",
   "authors": [
     "S. Francis"
@@ -44,7 +44,6 @@
     "jquery-extensions": "~1.0.0",
     "elliptical-utils": "~2.0.0",
     "elliptical-dustjs": "~2.7.3",
-    "jquery-mutation-summary": "~1.0.1",
-    "elliptical-dust-helpers": "~1.0.1"
+    "jquery-mutation-summary": "~1.0.1"
   }
 }

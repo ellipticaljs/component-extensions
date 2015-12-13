@@ -1,7 +1,7 @@
 {
   "name": "component-extensions",
   "description": "prototype extensions/behaviors for web components",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "author": "S. Francis",
   "license": "MIT",
   "repository": {
@@ -11,8 +11,6 @@
   "dependencies": {
     "jquery-extensions": "git+https://github.com/ellipticaljs/jquery-extensions.git",
     "jquery-mutation-summary": "git+https://github.com/ellipticaljs/jquery-mutation-summary.git",
-    "dustjs": "git+https://github.com/ellipticaljs/dustjs.git",
-    "elliptical-dust-helpers": "git+https://github.com/ellipticaljs/dust-helpers.git",
     "elliptical-utils": "git+https://github.com/ellipticaljs/utils.git"
   },
   "devDependencies": {

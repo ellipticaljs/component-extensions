@@ -1,7 +1,7 @@
 {
   "name": "component-extensions",
   "description": "prototype extensions/behaviors for web components",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "main": "dist/component-extensions.js",
   "authors": [
     "S. Francis"
@@ -38,7 +38,8 @@
     ".eslintrc",
     "bin",
     "CHANGELOG.md",
-    "demos"
+    "demos",
+    "bk"
   ],
   "dependencies": {
     "jquery-extensions": "~1.0.0",

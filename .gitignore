@@ -46,6 +46,8 @@ bin/
 #Test
 test/
 
+bk/
+
 umd.js
 
 project-assets/

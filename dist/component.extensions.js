@@ -124,7 +124,7 @@
                 this._modal = div;
             }
 
-            var opacity = (opts.opacity) ? opts.opacity : .3;
+            var opacity = (opts.opacity !==undefined) ? opts.opacity : .3;
             div.css({
                 opacity: 0
             });

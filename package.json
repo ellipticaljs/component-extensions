@@ -1,7 +1,7 @@
 {
   "name": "component-extensions",
   "description": "prototype extensions/behaviors for web components",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "author": "S. Francis",
   "license": "MIT",
   "repository": {
@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "jquery-extensions": "git+https://github.com/ellipticaljs/jquery-extensions.git",
-    "jquery-mutation-summary": "git+https://github.com/ellipticaljs/jquery-mutation-summary.git",
     "elliptical-utils": "git+https://github.com/ellipticaljs/utils.git"
   },
   "devDependencies": {

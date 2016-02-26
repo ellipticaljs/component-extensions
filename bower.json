@@ -43,8 +43,6 @@
   ],
   "dependencies": {
     "jquery-extensions": "~1.0.0",
-    "elliptical-utils": "~2.0.0",
-    "elliptical-dustjs": "~2.7.3",
-    "jquery-mutation-summary": "~1.0.1"
+    "elliptical-utils": "~2.0.0"
   }
 }

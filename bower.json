@@ -1,7 +1,7 @@
 {
   "name": "component-extensions",
   "description": "prototype extensions/behaviors for web components",
-  "version": "1.0.23",
+  "version": "1.1.0",
   "main": "dist/component-extensions.js",
   "authors": [
     "S. Francis"
@@ -43,6 +43,6 @@
   ],
   "dependencies": {
     "jquery-extensions": "~1.0.0",
-    "elliptical-utils": "~2.0.0"
+    "elliptical-utils": "~2.1.0"
   }
 }

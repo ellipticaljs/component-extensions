@@ -406,6 +406,11 @@
             this.element.trigger(evt,data);
         },
 
+        _dispatchEvent:function(evt,data){
+            var event=new CustomEvent(evt,{detail:data});
+            document.dispatchEvent(event);
+        },
+
         _jqTrigger:function(type,event,data){
             try {
                 var prop, orig,
